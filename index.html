@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon espace — Résidence Les Tilleuls | EspaceCopro</title>
-  <meta name="description" content="Espace copropriétaire : documents, finances, réunions et demandes de votre copropriété.">
+  <title>Conseil syndical — Clos Compan | EspaceCopro</title>
+  <meta name="description" content="Espace de pilotage du conseil syndical : ordre du jour, travaux et devis, budget, documents et accès.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
       <span class="topbar__name">Espace<strong>Copro</strong></span>
     </a>
     <span class="topbar__sep" aria-hidden="true"></span>
-    <span class="topbar__copro">Résidence Les Tilleuls</span>
+    <span class="topbar__copro">Clos Compan</span>
     <div class="topbar__spacer"></div>
     <div class="topbar__user">
       <button class="topbar__notif" aria-label="Notifications">
@@ -35,17 +35,20 @@
   <div class="layout">
 
     <nav class="sidenav" id="sidenav" aria-label="Navigation principale">
+      <div class="sidenav__context">
+        <p class="sidenav__eyebrow">Espace de pilotage</p>
+        <p class="sidenav__title">Conseil syndical</p>
+      </div>
       <ul class="sidenav__list">
         <li><a class="sidenav__link is-active" href="#tableau-de-bord">Tableau de bord</a></li>
+        <li><a class="sidenav__link" href="#reunions">Ordre du jour &amp; réunions</a></li>
+        <li><a class="sidenav__link" href="#travaux">Travaux &amp; devis</a></li>
+        <li><a class="sidenav__link" href="#budget">Budget &amp; finances</a></li>
         <li><a class="sidenav__link" href="#documents">Documents</a></li>
-        <li><a class="sidenav__link" href="#finances">Finances</a></li>
-        <li><a class="sidenav__link" href="#reunions">Réunions</a></li>
-        <li><a class="sidenav__link" href="#demandes">Demandes &amp; maintenance</a></li>
-        <li><a class="sidenav__link" href="#annonces">Annonces</a></li>
-        <li><a class="sidenav__link" href="#contacts">Contacts</a></li>
+        <li><a class="sidenav__link" href="#membres">Membres &amp; accès</a></li>
       </ul>
       <div class="sidenav__foot">
-        <a href="#contacts">Contacter le syndic</a>
+        <a href="#membres">Contacter le syndic</a>
         <a href="#">Aide</a>
         <a href="#">Se déconnecter</a>
       </div>
@@ -54,66 +57,180 @@
     <main class="main" id="tableau-de-bord">
       <div class="main__head">
         <div>
-          <p class="eyebrow">Espace copropriétaire</p>
-          <h1>Bonjour Marie</h1>
-          <p class="main__sub">Lot 12 — Bat. B · Voici l'activité de votre copropriété.</p>
+          <p class="eyebrow">Conseil syndical</p>
+          <h1>Tableau de bord</h1>
+          <p class="main__sub">Clos Compan · 24 lots · Suivi de la gestion du syndic et préparation des décisions.</p>
         </div>
         <div class="main__actions">
-          <a class="btn btn--ghost" href="#documents">Tous les documents</a>
-          <a class="btn btn--primary" href="#demandes">Nouvelle demande</a>
+          <a class="btn btn--ghost" href="#travaux">Devis à examiner</a>
+          <a class="btn btn--primary" data-modal-open="ordre-du-jour" href="#reunions">Ajouter un point à l'ordre du jour</a>
         </div>
       </div>
 
       <section class="kpis" aria-label="Indicateurs clés">
         <article class="card kpi">
-          <p class="kpi__label">Solde de votre compte</p>
-          <p class="kpi__value">+ 340,00 €</p>
-          <p class="kpi__hint">Après appel de fonds du 05/01</p>
+          <p class="kpi__label">Budget annuel voté</p>
+          <p class="kpi__value">38 400 €</p>
+          <p class="kpi__hint">Exercice 2026 · 24 lots</p>
         </article>
         <article class="card kpi">
-          <p class="kpi__label">Prochaine échéance</p>
-          <p class="kpi__value">285,00 €</p>
-          <p class="kpi__hint">Appel de fonds T2 — 5 avril</p>
+          <p class="kpi__label">Devis en attente d'avis</p>
+          <p class="kpi__value">3</p>
+          <p class="kpi__hint">2 travaux · 1 contrat d'entretien</p>
         </article>
         <article class="card kpi">
-          <p class="kpi__label">Prochaine réunion</p>
-          <p class="kpi__value">AG 06/03</p>
-          <p class="kpi__hint">Salle commune — 19h30</p>
+          <p class="kpi__label">Prochaine réunion du conseil</p>
+          <p class="kpi__value">14/02</p>
+          <p class="kpi__hint">18h00 · Visioconférence</p>
         </article>
         <article class="card kpi">
-          <p class="kpi__label">Demandes en cours</p>
-          <p class="kpi__value">2</p>
-          <p class="kpi__hint">1 ouverte · 1 en traitement</p>
+          <p class="kpi__label">Points ouverts</p>
+          <p class="kpi__value">7</p>
+          <p class="kpi__hint">Dont 2 signalés par des copropriétaires</p>
         </article>
       </section>
 
-      <section class="grid grid--main" id="finances" aria-label="Finances">
+      <section class="grid grid--main" id="reunions" aria-label="Réunions du conseil">
         <article class="card">
           <header class="card__head">
-            <h2>Mes paiements</h2>
-            <a class="card__link" href="#finances">Historique complet</a>
+            <h2>Ordre du jour — conseil du 14/02</h2>
+            <button class="btn btn--ghost btn--small" data-modal-open="ordre-du-jour" type="button">Ajouter un point</button>
           </header>
-          <div class="table-wrap">
-          <table class="table">
-            <thead>
-              <tr><th scope="col">Échéance</th><th scope="col">Libellé</th><th scope="col">Montant</th><th scope="col">Statut</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>05/01</td><td>Appel de fonds T1</td><td>285,00 €</td><td><span class="tag tag--ok">Payé</span></td></tr>
-              <tr><td>18/12</td><td>Travaux ravalement — solde</td><td>120,00 €</td><td><span class="tag tag--ok">Payé</span></td></tr>
-              <tr><td>05/04</td><td>Appel de fonds T2</td><td>285,00 €</td><td><span class="tag tag--wait">À payer</span></td></tr>
-            </tbody>
-          </table>
-          </div>
+          <ol class="ods">
+            <li class="ods__item">
+              <span class="ods__num" aria-hidden="true">1</span>
+              <div class="ods__body">
+                <p class="ods__title">Examen du devis ravalement — adjunction du marché</p>
+                <p class="ods__meta">Proposé par M. Lambert · Avis du conseil requis</p>
+              </div>
+              <span class="tag tag--wait">À statuer</span>
+            </li>
+            <li class="ods__item">
+              <span class="ods__num" aria-hidden="true">2</span>
+              <div class="ods__body">
+                <p class="ods__title">Contrat de garde — propositions de renouvellement</p>
+                <p class="ods__meta">Proposé par Mme Roussel · 2 devis joints</p>
+              </div>
+              <span class="tag tag--wait">À statuer</span>
+            </li>
+            <li class="ods__item">
+              <span class="ods__num" aria-hidden="true">3</span>
+              <div class="ods__body">
+                <p class="ods__title">Contrôle des comptes du syndic — T4 2025</p>
+                <p class="ods__meta">Pièces comptables reçues du syndic</p>
+              </div>
+              <span class="tag tag--wait">À statuer</span>
+            </li>
+            <li class="ods__item">
+              <span class="ods__num" aria-hidden="true">4</span>
+              <div class="ods__body">
+                <p class="ods__title">Préparation de l'AG du 06/03 — projets de résolutions</p>
+                <p class="ods__meta">Rédaction partagée · responsable : M. Lambert</p>
+              </div>
+              <span class="tag tag--ok">En préparation</span>
+            </li>
+          </ol>
           <div class="card__foot">
-            <p class="card__note">IBAN collectif Cpro — LBN 1782 · BIC ESPCFRPP</p>
-            <button class="btn btn--small" type="button">Payer / Prélever</button>
+            <p class="card__note">L'ordre du jour est visible par tous les membres et transmissible au syndic.</p>
+            <button class="btn btn--small" type="button">Exporter en PDF</button>
           </div>
         </article>
 
         <article class="card">
           <header class="card__head">
-            <h2>Répartition des charges</h2>
+            <h2>Réunions</h2>
+            <a class="card__link" href="#reunions">Historique</a>
+          </header>
+          <ul class="list">
+            <li class="list__item">
+              <span class="list__date"><strong>14</strong><small>fév.</small></span>
+              <div class="list__body">
+                <h3>Conseil syndical</h3>
+                <p>18h00 · Visioconférence · Quorum requis</p>
+              </div>
+              <a class="btn btn--ghost btn--small" href="#reunions">Ordre du jour</a>
+            </li>
+            <li class="list__item">
+              <span class="list__date"><strong>06</strong><small>mars</small></span>
+              <div class="list__body">
+                <h3>Assemblée générale</h3>
+                <p>19h30 · Salle commune · Conseil convié</p>
+              </div>
+              <a class="btn btn--ghost btn--small" href="#reunions">Projets de résolutions</a>
+            </li>
+          </ul>
+          <div class="card__foot">
+            <p class="card__note">Dernier PV : CS du 15/01/2026 (signé)</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid grid--secondary" id="travaux" aria-label="Travaux et devis">
+        <article class="card">
+          <header class="card__head">
+            <h2>Devis à examiner</h2>
+            <a class="card__link" href="#travaux">Tous les devis</a>
+          </header>
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Objet</th><th scope="col">Montant</th><th scope="col">Avis</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ravalement des façades — société LM Bâti</td>
+                <td>42 500 €</td>
+                <td><span class="tag tag--wait">À statuer</span></td>
+              </tr>
+              <tr>
+                <td>Remplacement chaudière collective</td>
+                <td>18 900 €</td>
+                <td><span class="tag tag--wait">À statuer</span></td>
+              </tr>
+              <tr>
+                <td>Entretien des espaces verts (contrat annuel)</td>
+                <td>3 240 €/an</td>
+                <td><span class="tag tag--ok">Avis favorable</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card__foot">
+            <p class="card__note">L'avis du conseil est consultatif : il est transmis au syndic avant décision.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card__head">
+            <h2>Travaux en cours</h2>
+            <a class="card__link" href="#travaux">Détail</a>
+          </header>
+          <ul class="list">
+            <li class="list__item">
+              <img class="list__thumb" src="https://picsum.photos/seed/esc-ravalement/96/96" alt="Photo de suivi du chantier de ravalement" loading="lazy" width="48" height="48">
+              <div class="list__body">
+                <h3>Ravalement — fin des finitions appliquées</h3>
+                <p>Ajoutée le 20/01 · Syndic</p>
+              </div>
+              <span class="tag tag--ok">En cours</span>
+            </li>
+            <li class="list__item">
+              <img class="list__thumb" src="https://picsum.photos/seed/esc-toiture/96/96" alt="Photo de suivi du chantier de toiture" loading="lazy" width="48" height="48">
+              <div class="list__body">
+                <h3>Réfection de la toiture — devis en consultation</h3>
+                <p>Ajoutée le 24/01 · Syndic</p>
+              </div>
+              <span class="tag tag--open">En consultation</span>
+            </li>
+          </ul>
+          <div class="card__foot">
+            <p class="card__note">Suivi des délais signalé au syndic le 21/01.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid grid--secondary" id="budget" aria-label="Budget et finances">
+        <article class="card">
+          <header class="card__head">
+            <h2>Répartition du budget</h2>
             <span class="card__meta">Budget 2026</span>
           </header>
           <ul class="bars">
@@ -127,114 +244,25 @@
             <p class="card__note">Budget voté en AG : 38 400 € · 24 lots</p>
           </div>
         </article>
-      </section>
 
-      <section class="grid grid--secondary" aria-label="Réunions et demandes">
-        <article class="card" id="reunions">
-          <header class="card__head">
-            <h2>Réunions</h2>
-            <a class="card__link" href="#reunions">Toutes</a>
-          </header>
-          <ul class="list">
-            <li class="list__item">
-              <span class="list__date"><strong>06</strong><small>mars</small></span>
-              <div class="list__body">
-                <h3>Assemblée générale annuelle</h3>
-                <p>19h30 · Salle commune · Convocation envoyée le 20/01</p>
-              </div>
-              <a class="btn btn--ghost btn--small" href="#reunions">Donner pouvoir</a>
-            </li>
-            <li class="list__item">
-              <span class="list__date"><strong>14</strong><small>fév.</small></span>
-              <div class="list__body">
-                <h3>Conseil syndical</h3>
-                <p>18h00 · Visioconférence</p>
-              </div>
-              <a class="btn btn--ghost btn--small" href="#reunions">Ordre du jour</a>
-            </li>
-          </ul>
-        </article>
-
-        <article class="card" id="demandes">
-          <header class="card__head">
-            <h2>Mes demandes</h2>
-            <button class="btn btn--primary btn--small" data-modal-open="demande">Nouvelle demande</button>
-          </header>
-          <ul class="list">
-            <li class="list__item">
-              <img class="list__thumb" src="https://picsum.photos/seed/asc-elec/96/96" alt="Photo envoyée avec la demande de la porte de garage" loading="lazy" width="48" height="48">
-              <div class="list__body">
-                <h3>Porte de garage bloquée</h3>
-                <p>Ouverte le 22/01 · Syndic</p>
-              </div>
-              <span class="tag tag--wait">En traitement</span>
-            </li>
-            <li class="list__item">
-              <img class="list__thumb" src="https://picsum.photos/seed/asc-eau/96/96" alt="Photo envoyée avec la demande de fuite d'eau" loading="lazy" width="48" height="48">
-              <div class="list__body">
-                <h3>Fuite de montage — cage d'escalier</h3>
-                <p>Ouverte le 24/01 · Syndic</p>
-              </div>
-              <span class="tag tag--open">Ouverte</span>
-            </li>
-          </ul>
-          <div class="card__foot">
-            <p class="card__note">Urgence 24h/24 : +33 (0)1 00 00 00 00 (copropriété)</p>
-          </div>
-        </article>
-      </section>
-
-      <section class="grid grid--secondary" id="annonces" aria-label="Annonces et contacts">
         <article class="card">
           <header class="card__head">
-            <h2>Annonces</h2>
-            <a class="card__link" href="#annonces">Historique</a>
+            <h2>Contrôle des comptes du syndic</h2>
+            <span class="card__meta">T4 2025</span>
           </header>
-          <ul class="list">
-            <li class="list__item list__item--stack">
-              <div class="list__body">
-                <h3>Coupure d'eau — annulée</h3>
-                <p>Affichée le 24/01 · Syndic</p>
-                <p>Coupure d'eau réserves annulée, intervention reportée à une date ultérieure.</p>
-              </div>
-            </li>
-            <li class="list__item list__item--stack">
-              <div class="list__body">
-                <h3>Travaux de ravalement — fin des finitions</h3>
-                <p>Affichée le 12/01 · Conseil syndical</p>
-                <p>Les finitions se terminent sur la façade nord ; nettoyage courant du chantier la semaine prochaine.</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-
-        <article class="card" id="contacts">
-          <header class="card__head">
-            <h2>Contacts</h2>
-          </header>
-          <ul class="contacts">
-            <li class="contacts__item">
-              <span class="contacts__avatar" aria-hidden="true">SD</span>
-              <div>
-                <p><strong>Syndic De la Cour</strong></p>
-                <p><a href="mailto:syndic@exemple.fr">syndic@exemple.fr</a> · 01 00 00 00 00</p>
-              </div>
-            </li>
-            <li class="contacts__item">
-              <span class="contacts__avatar" aria-hidden="true">CS</span>
-              <div>
-                <p><strong>Conseil syndical</strong></p>
-                <p><a href="mailto:conseil@exemple.fr">conseil@exemple.fr</a></p>
-              </div>
-            </li>
-            <li class="contacts__item">
-              <span class="contacts__avatar" aria-hidden="true">AG</span>
-              <div>
-                <p><strong>Gardien</strong></p>
-                <p>Logement du gardien · Bat. A</p>
-              </div>
-            </li>
-          </ul>
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Poste contrôlé</th><th scope="col">Montant</th><th scope="col">Statut</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Justificatifs des dépenses courantes</td><td>9 120 €</td><td><span class="tag tag--ok">Conformes</span></td></tr>
+              <tr><td>Fonds travaux (sous-compte)</td><td>12 400 €</td><td><span class="tag tag--ok">Conformes</span></td></tr>
+              <tr><td>Facture assurance — écart constaté</td><td>+ 180 €</td><td><span class="tag tag--wait">À éclaircir</span></td></tr>
+            </tbody>
+          </table>
+          <div class="card__foot">
+            <p class="card__note">Rapport de contrôle annexé au PV du 15/01/2026.</p>
+          </div>
         </article>
       </section>
 
@@ -251,62 +279,157 @@
             <tr><th scope="col">Nom</th><th scope="col">Catégorie</th><th scope="col">Ajouté le</th><th scope="col">Taille</th><th scope="col"><span class="sr-only">Action</span></th></tr>
           </thead>
           <tbody>
-            <tr data-name="convocation assemblee generale mars">
-              <td><a href="#" class="doclink" download>Convocation_AG_mars.pdf</a></td><td>Réunions</td><td>20/01/2026</td><td>412 Ko</td>
+            <tr data-name="procès-verbal du conseil syndical 15 janvier">
+              <td><a href="#" class="doclink" download>PV_CS_15-01-2026.pdf</a></td><td>Réunions</td><td>18/01/2026</td><td>248 Ko</td>
               <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
             </tr>
-            <tr data-name="appel de fonds trimestre 2">
-              <td><a href="#" class="doclink" download>Appel_de_fonds_T2.pdf</a></td><td>Finances</td><td>12/01/2026</td><td>188 Ko</td>
+            <tr data-name="devis ravalement facades lm bati">
+              <td><a href="#" class="doclink" download>Devis_ravalement_LM-Bati.pdf</a></td><td>Travaux</td><td>12/01/2026</td><td>1,1 Mo</td>
               <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
             </tr>
-            <tr data-name="procès-verbal assemblée générale 2025">
-              <td><a href="#" class="doclink" download>PV_AG_2025.pdf</a></td><td>Réunions</td><td>30/06/2025</td><td>640 Ko</td>
+            <tr data-name="pièces comptables syndic trimestre 4 2025">
+              <td><a href="#" class="doclink" download>Comptes_syndic_T4-2025.pdf</a></td><td>Finances</td><td>10/01/2026</td><td>540 Ko</td>
               <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
             </tr>
-            <tr data-name="reglement de copropriete garde">
+            <tr data-name="projets de résolutions assemblee generale">
+              <td><a href="#" class="doclink" download>Projets_resolutions_AG-2026.odt</a></td><td>Réunions</td><td>08/01/2026</td><td>96 Ko</td>
+              <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
+            </tr>
+            <tr data-name="reglement de copropriete">
               <td><a href="#" class="doclink" download>Reglement_copropriete.pdf</a></td><td>Légal</td><td>12/01/2024</td><td>2,1 Mo</td>
+              <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
+            </tr>
+            <tr data-name="diagnostic technique global">
+              <td><a href="#" class="doclink" download>DTG_2025.pdf</a></td><td>Légal</td><td>08/10/2025</td><td>3,3 Mo</td>
               <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
             </tr>
             <tr data-name="carnet d'entretien">
               <td><a href="#" class="doclink" download>Carnet_entretien.pdf</a></td><td>Légal</td><td>12/01/2024</td><td>1,4 Mo</td>
               <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
             </tr>
-            <tr data-name="diagnostic technique global">
-              <td><a href="#" class="doclink" download>DTG_2025.pdf</a></td><td>Travaux</td><td>08/10/2025</td><td>3,3 Mo</td>
-              <td><a class="btn btn--ghost btn--small" href="#" download>Télécharger</a></td>
-            </tr>
           </tbody>
         </table>
         </div>
+      </section>
+
+      <section class="grid grid--secondary">
+        <article class="card" id="membres" aria-label="Membres du conseil">
+          <header class="card__head">
+            <h2>Membres &amp; accès</h2>
+            <button class="btn btn--primary btn--small" data-modal-open="membre" type="button">Inviter un membre</button>
+          </header>
+          <ul class="list">
+            <li class="list__item">
+              <span class="list__avatar" aria-hidden="true">ML</span>
+              <div class="list__body">
+                <h3>M. Lambert</h3>
+                <p>m.lambert@exemple.fr · depuis le 02/09/2024</p>
+              </div>
+              <span class="tag tag--ok">Président</span>
+            </li>
+            <li class="list__item">
+              <span class="list__avatar" aria-hidden="true">CR</span>
+              <div class="list__body">
+                <h3>Mme Roussel</h3>
+                <p>c.roussel@exemple.fr · depuis le 02/09/2024</p>
+              </div>
+              <span class="tag tag--ok">Administrateur</span>
+            </li>
+            <li class="list__item">
+              <span class="list__avatar" aria-hidden="true">TN</span>
+              <div class="list__body">
+                <h3>M. Nguyen</h3>
+                <p>t.nguyen@exemple.fr · depuis le 15/03/2025</p>
+              </div>
+              <span class="tag tag--ok">Membre</span>
+            </li>
+            <li class="list__item">
+              <span class="list__avatar" aria-hidden="true">?</span>
+              <div class="list__body">
+                <h3>Invitation en attente</h3>
+                <p>p.morel@exemple.fr · lien envoyé le 20/01/2026</p>
+              </div>
+              <span class="tag tag--wait">Non activée</span>
+            </li>
+          </ul>
+          <div class="card__foot">
+            <p class="card__note">Seuls les membres invités par le président accèdent à cet espace.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card__head">
+            <h2>Demandes relayées au syndic</h2>
+            <a class="card__link" href="#travaux">Historique</a>
+          </header>
+          <ul class="list">
+            <li class="list__item">
+              <div class="list__body">
+                <h3>Porte de garage bloquée — escalier C</h3>
+                <p>Relayée le 22/01 · relance programmée le 29/01</p>
+              </div>
+              <span class="tag tag--wait">En attente syndic</span>
+            </li>
+            <li class="list__item">
+              <div class="list__body">
+                <h3>Éclairage parking — récurrence de pannes</h3>
+                <p>Relayée le 12/01 · intervention planifiée</p>
+              </div>
+              <span class="tag tag--ok">Prise en charge</span>
+            </li>
+          </ul>
+          <div class="card__foot">
+            <p class="card__note">Urgence 24h/24 : +33 (0)1 00 00 00 00 (syndic).</p>
+          </div>
+        </article>
       </section>
     </main>
   </div>
 
   <footer class="footer">
-    <p>EspaceCopro · Un espace par copropriété, des données isolées et sécurisées.</p>
+    <p>EspaceCopro · Un espace par copropriété : les conseils syndicaux pilotent, le syndic gère.</p>
     <p><a href="#">Mentions légales</a> · <a href="#">CGU</a> · <a href="#">Confidentialité</a></p>
   </footer>
 
-  <dialog class="modal" id="modal-demande">
+  <dialog class="modal" id="modal-ordre-du-jour">
     <form class="modal__form" method="dialog">
-      <h2>Nouvelle demande</h2>
-      <p class="modal__hint">Décrivez le problème ou la demande. Ajoutez une photo si utile.</p>
-      <label>Objet<input class="input" type="text" name="objet" required placeholder="Ex. Porte de garage bloquée"></label>
-      <label>Emplacement
-        <select class="input" name="lieu">
-          <option>Parties communes</option><option>Cage d'escalier</option><option>Parking / garage</option><option>Espaces verts</option><option>Mon lot</option>
+      <h2>Ajouter un point à l'ordre du jour</h2>
+      <p class="modal__hint">Le point sera soumis au président avant diffusion aux membres.</p>
+      <label>Intitulé du point<input class="input" type="text" name="intitule" required placeholder="Ex. Examen du devis de remplacement des portails"></label>
+      <label>Thématique
+        <select class="input" name="theme">
+          <option>Travaux &amp; devis</option><option>Finances &amp; budget</option><option>Entretien courant</option><option>Assemblée générale</option><option>Divers</option>
         </select>
       </label>
-      <label>Urgence
-        <select class="input" name="urgence">
-          <option>Normale</option><option>Prioritaire</option><option>Urgente (24h)</option>
+      <label>Avis souhaité
+        <select class="input" name="avis">
+          <option>Information</option><option>Avis du conseil requis</option><option>Décision interne du conseil</option>
         </select>
       </label>
-      <label>Description<textarea class="input" name="description" rows="4" placeholder="Décrivez la situation, depuis quand, etc."></textarea></label>
-      <label>Photos<input class="input input--file" type="file" name="photos" multiple accept="image/*"></label>
+      <label>Détail<textarea class="input" name="detail" rows="4" placeholder="Contexte, pièces jointes nécessaires, échéance…"></textarea></label>
       <div class="modal__actions">
         <button class="btn btn--ghost" type="submit" value="cancel">Annuler</button>
-        <button class="btn btn--primary" type="submit" value="send">Envoyer la demande</button>
+        <button class="btn btn--primary" type="submit" value="send">Proposer le point</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="modal-membre">
+    <form class="modal__form" method="dialog">
+      <h2>Inviter un membre du conseil</h2>
+      <p class="modal__hint">Un lien d'accès personnel sera envoyé à l'adresse indiquée.</p>
+      <label>Prénom<input class="input" type="text" name="prenom" required placeholder="Ex. Paul"></label>
+      <label>Nom<input class="input" type="text" name="nom" required placeholder="Ex. Morel"></label>
+      <label>Adresse e-mail<input class="input" type="email" name="email" required placeholder="p.morel@exemple.fr"></label>
+      <label>Rôle dans le conseil syndical
+        <select class="input" name="role">
+          <option>Membre du conseil syndical</option><option>Administrateur(trice)</option><option>Président(e) du conseil syndical</option>
+        </select>
+      </label>
+      <p class="modal__hint">Aucun mot de passe n'est demandé ici : le futur membre définit le sien à l'activation.</p>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" type="submit" value="cancel">Annuler</button>
+        <button class="btn btn--primary" type="submit" value="send">Envoyer l'invitation</button>
       </div>
     </form>
   </dialog>

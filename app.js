@@ -21,8 +21,10 @@
     var trigger = event.target.closest("[data-modal-open]");
     if (!trigger) return;
     event.preventDefault();
-    document.getElementById("modal-demande").showModal();
+    var dialog = document.getElementById("modal-" + trigger.getAttribute("data-modal-open"));
+    if (dialog && typeof dialog.showModal === "function") dialog.showModal();
   });
+
   var docTable = document.querySelector("[data-table-docs");
   var docSearch = document.querySelector(".input--search");
   if (docTable && docSearch) {
