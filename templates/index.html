@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EspaceCopro — Templates responsive</title>
+<style>
+  :root{--navy:#0F2A43;--blue:#2E6FD9;--bg:#F7F9FB;--border:#E3E9F0;--muted:#5A6B7D}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1C2B3A;line-height:1.6}
+  .wrap{width:min(1000px,92%);margin:0 auto;padding:60px 0}
+  h1{color:var(--navy);font-size:2rem}
+  .lead{color:var(--muted);margin:12px 0 40px;max-width:60ch}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .t{display:block;background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;text-decoration:none;box-shadow:0 8px 30px rgba(15,42,67,.06);transition:.2s;color:inherit}
+  .t:hover{transform:translateY(-4px);border-color:var(--blue)}
+  .t .n{font-size:.74rem;font-weight:800;letter-spacing:.1em;color:var(--blue);text-transform:uppercase}
+  .t h2{color:var(--navy);font-size:1.15rem;margin:6px 0 8px}
+  .t p{color:var(--muted);font-size:.9rem}
+  .t .open{display:inline-block;margin-top:14px;color:var(--blue);font-weight:700}
+  @media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>EspaceCopro — 4 templates responsive</h1>
+  <p class="lead">Maquettes statiques HTML/CSS (mobile 📱, tablette, desktop 🖥). Ouvrez un template puis redimensionnez la fenêtre pour tester le responsive.</p>
+  <div class="grid">
+    <a class="t" href="template-1-pilotage.html"><span class="n">Template 01</span><h2>Pilotage — Landing publique</h2><p>Hero plein écran, 4 cartes fonctionnalités, 3 étapes, FAQ, bande CTA. Menu burger sur mobile.</p><span class="open">Ouvrir →</span></a>
+    <a class="t" href="template-2-guichet.html"><span class="n">Template 02</span><h2>Guichet — Création d’espace</h2><p>Formulaire d’onboarding en 2 sections, aperçu du lien, panneau latéral récapitulatif. Une colonne sur mobile.</p><span class="open">Ouvrir →</span></a>
+    <a class="t" href="template-3-console.html"><span class="n">Template 03</span><h2>Console — Portail administrateur</h2><p>Sidebar + tableau des espaces + espaces récents. Sidebar en drawer et tableau en cartes sur mobile.</p><span class="open">Ouvrir →</span></a>
+    <a class="t" href="template-4-espace-copro.html"><span class="n">Template 04</span><h2>Mon copro — Espace conseil syndical</h2><p>Onglets de rubriques, bento de stats, travaux, documents, agenda. Barre de navigation basse sur mobile.</p><span class="open">Ouvrir →</span></a>
+  </div>
+</div>
+</body>
+</html>
