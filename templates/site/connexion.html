@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EspaceCopro — Connexion administrateur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#201E20; --secondary:#E0A96D; --sand:#DDC3A5; --bg:#FAF5EF;
+    --ink:#201E20; --muted:#6F6A66; --card:#FFFDF9; --border:#E7DACA; --accent-soft:#F6E7D2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Mulish',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+  h1,h2,h3,.brand{font-family:'Bricolage Grotesque',sans-serif}
+  .split{display:grid;grid-template-columns:1fr 1.1fr;min-height:100vh}
+  .left{background:var(--primary);color:#F1E4D2;padding:56px 48px;display:flex;flex-direction:column}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff;text-decoration:none;font-size:1.15rem}
+  .brand-mark{width:36px;height:36px;border-radius:11px;background:var(--secondary);color:var(--ink);display:grid;place-items:center}
+  .left h1{color:#fff;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.12;margin:40px 0 14px;max-width:18ch}
+  .left p{max-width:44ch;font-size:.98rem;opacity:.85}
+  .left ul{list-style:none;margin-top:30px;display:grid;gap:14px}
+  .left li{display:flex;gap:12px;font-size:.94rem}
+  .left li::before{content:"◆";color:var(--secondary)}
+  .left .foot{margin-top:auto;padding-top:40px;font-size:.85rem;opacity:.7}
+  .right{display:grid;place-items:center;padding:56px 6%}
+  .card{background:var(--card);border:2px solid var(--border);border-radius:22px;box-shadow:8px 8px 0 var(--sand);padding:40px;width:min(440px,100%)}
+  .kicker{display:inline-block;color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:var(--accent-soft);padding:6px 13px;border-radius:999px;border:1.5px dashed var(--secondary)}
+  .card h2{font-size:1.5rem;margin:16px 0 6px}
+  .card>p{color:var(--muted);font-size:.92rem;margin-bottom:26px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .field label{font-weight:700;font-size:.9rem}
+  .field input{padding:13px 14px;border:2px solid var(--border);border-radius:10px;font-size:1rem;font-family:inherit;background:#fff;color:var(--ink);min-height:50px}
+  .field input:focus{outline:none;border-color:var(--secondary);box-shadow:3px 3px 0 var(--sand)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:800;font-size:.98rem;border:none;cursor:pointer;font-family:'Mulish',sans-serif;min-height:52px;text-decoration:none;transition:.15s}
+  .btn-primary{background:var(--primary);color:var(--bg);width:100%}
+  .btn-primary:hover{box-shadow:5px 5px 0 var(--secondary);transform:translate(-1px,-1px)}
+  .alt{margin-top:22px;padding-top:18px;border-top:1.5px dashed var(--sand);font-size:.92rem;color:var(--muted)}
+  .alt a{color:#B7813F;font-weight:800;text-decoration:none}
+  .alt a:hover{text-decoration:underline}
+  .retour{margin-top:16px;text-align:center;font-size:.88rem}
+  .retour a{color:var(--muted)}
+  .note{margin-top:14px;font-size:.8rem;color:var(--muted);display:none;background:var(--accent-soft);border-radius:10px;padding:10px 14px}
+  @media (max-width:900px){
+    .split{grid-template-columns:1fr}
+    .left{padding:32px 6%;min-height:auto}
+    .left h1{margin-top:24px}
+    .right{padding:40px 6%}
+    .card{padding:30px 24px;box-shadow:5px 5px 0 var(--sand)}
+  }
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#201E20">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="EspaceCopro">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+<div class="split">
+  <aside class="left">
+    <a class="brand" href="index.html"><span class="brand-mark">EC</span> EspaceCopro</a>
+    <h1>Le poste de commande de tous les espaces copropriété.</h1>
+    <p>Créez les espaces de travail des conseils syndicaux, invitez leurs responsables et suivez l’activité — depuis un portail unique.</p>
+    <ul>
+      <li>Création d’un espace en une minute, lien et invitation générés</li>
+      <li>Données isolées par copropriété, accès par rôle</li>
+      <li>Journal des invitations et des activations</li>
+    </ul>
+    <p class="foot">© 2026 EspaceCopro — accès réservé à l’équipe EspaceCopro</p>
+  </aside>
+  <main class="right">
+    <div class="card">
+      <span class="kicker">Espace administrateur</span>
+      <h2>Connexion</h2>
+      <p>Réservé à l’équipe de gestion EspaceCopro. Les conseils syndicaux créent leur espace depuis la page dédiée.</p>
+      <form id="login" action="#" method="post" novalidate>
+        <div class="field"><label for="email">Adresse e-mail</label><input id="email" type="email" required autocomplete="email" placeholder="admin@espacecopro.fr"></div>
+        <div class="field"><label for="pwd">Mot de passe</label><input id="pwd" type="password" required autocomplete="current-password" placeholder="••••••••"></div>
+        <button class="btn btn-primary" type="submit">Ouvrir ma console →</button>
+        <p class="note" id="note">Maquette : connexion simulée, redirection vers le portail d’administration…</p>
+      </form>
+      <div class="alt">Vous représentez un conseil syndical ? <a href="creer-espace.html">Créer mon espace →</a></div>
+      <p class="retour"><a href="index.html">← Revenir à l’accueil</a></p>
+    </div>
+  </main>
+</div>
+<script>
+document.getElementById('login').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('note').style.display='block';
+  setTimeout(function(){location.href='administration.html';},900);
+});
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EspaceCopro — Créer mon espace conseil syndical</title>
+<style>
+  :root{
+    --navy:#0F2A43; --blue:#2E6FD9; --blue-dark:#1F55AD; --bg:#F7F9FB;
+    --green:#1F9D6B; --ink:#1C2B3A; --muted:#5A6B7D; --border:#E3E9F0;
+    --card:#fff; --radius:16px; --shadow:0 8px 30px rgba(15,42,67,.08); --danger:#C0392B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter','Seg UI',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  .container{width:min(1100px,94%);margin-inline:auto}
+  .header{background:var(--navy);color:#fff;padding:14px 0}
+  .header-inner{display:flex;justify-content:space-between;align-items:center;min-height:48px}
+  .brand{font-weight:800;color:#fff;text-decoration:none;display:flex;gap:10px;align-items:center}
+  .brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#2E6FD9,#7FB0F5);color:#fff;display:grid;place-items:center}
+  .back{color:#C4D4E6;text-decoration:none;font-size:.9rem}
+  .back:hover{color:#fff}
+  /* Stepper */
+  .stepper{display:flex;align-items:center;gap:12px;padding:26px 0 8px;flex-wrap:wrap}
+  .step-item{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--muted);font-size:.92rem}
+  .step-dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#DCE4EE;color:var(--navy);font-weight:800;font-size:.82rem}
+  .step-item.active{color:var(--navy)}
+  .step-item.active .step-dot{background:var(--blue);color:#fff}
+  .step-item.done .step-dot{background:var(--green);color:#fff}
+  .step-line{flex:1;height:2px;background:var(--border);min-width:28px}
+  /* Layout */
+  .layout{display:grid;grid-template-columns:1.5fr .9fr;gap:28px;align-items:start;padding:20px 0 72px}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+  form h1{color:var(--navy);font-size:1.5rem;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:.95rem;margin-bottom:26px}
+  fieldset{border:none;margin-bottom:34px}
+  .legend{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .legend b{font-size:1.05rem;color:var(--navy)}
+  .num{font-size:.75rem;font-weight:800;color:var(--blue);background:#E7EFFC;padding:4px 10px;border-radius:999px;letter-spacing:.06em}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .field label{font-weight:600;font-size:.9rem;color:var(--navy)}
+  .field .opt{color:var(--muted);font-weight:500}
+  .field input,.field select{padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:1rem;background:#fff;color:var(--ink);font-family:inherit;min-height:48px}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(46,111,217,.15)}
+  .field .hint{font-size:.8rem;color:var(--muted)}
+  /* Aperçu du lien */
+  .link-preview{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border:1.5px dashed var(--border);border-radius:12px;padding:14px 16px;margin-bottom:20px;font-size:.9rem}
+  .link-preview code{color:var(--navy);font-weight:600;word-break:break-all}
+  .link-preview button{background:none;border:none;color:var(--blue);font-weight:700;cursor:pointer;font-size:.85rem;white-space:nowrap}
+  /* Mandat */
+  .mandat{background:#FFF8EC;border:1.5px solid #F0DDB2;border-radius:12px;padding:18px;margin:6px 0 22px}
+  .mandat label{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;color:#6B5B2E;cursor:pointer}
+  .mandat input{margin-top:4px;width:18px;height:18px;accent-color:var(--blue);flex:none}
+  .mandat p{color:var(--muted);font-size:.82rem;margin-top:8px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:10px;font-weight:700;font-size:1rem;border:none;cursor:pointer;min-height:50px;transition:.2s}
+  .btn-primary{background:var(--blue);color:#fff;width:100%}
+  .btn-primary:hover{background:var(--blue-dark)}
+  .btn-primary:disabled{background:#9FB4CB;cursor:not-allowed}
+  /* Aside */
+  .aside-sticky{position:sticky;top:20px;display:grid;gap:18px}
+  .info{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .info h3{color:var(--navy);font-size:1rem;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+  .info ul{list-style:none;display:grid;gap:10px}
+  .info li{display:flex;gap:10px;font-size:.88rem;color:var(--muted)}
+  .info li::before{content:"✓";color:var(--green);font-weight:800}
+  .secure{background:linear-gradient(150deg,var(--navy),#1B4B7E);color:#DCE8F7;border-radius:var(--radius);padding:22px;font-size:.88rem}
+  .secure b{color:#fff;display:block;margin-bottom:8px}
+  /* Responsive */
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr}
+    .aside-sticky{position:static}
+  }
+  @media (max-width:640px){
+    .grid-2{grid-template-columns:1fr}
+    .panel{padding:22px 18px}
+    .step-line{min-width:16px}
+    .step-item span{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><span class="brand-mark">⌂</span> EspaceCopro</a>
+    <a class="back" href="/">← Retour à l’accueil</a>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="stepper" aria-label="Étapes de création">
+    <div class="step-item active"><span class="step-dot">1</span><span>La copropriété</span></div>
+    <div class="step-line"></div>
+    <div class="step-item"><span class="step-dot">2</span><span>Le responsable</span></div>
+    <div class="step-line"></div>
+    <div class="step-item"><span class="step-dot">3</span><span>Activation</span></div>
+  </nav>
+
+  <div class="layout">
+    <form class="panel" action="#" method="post" novalidate>
+      <h1>Créer mon espace conseil syndical</h1>
+      <p class="sub">Environ 3 minutes · sans installation · aucun mot de passe demandé ici</p>
+
+      <fieldset>
+        <div class="legend"><span class="num">01</span><b>🏠 Votre copropriété</b></div>
+        <div class="field">
+          <label for="nom">Nom de la copropriété *</label>
+          <input id="nom" name="nom" type="text" required autocomplete="organization" placeholder="Ex. : Résidence Les Tilleuls">
+        </div>
+        <div class="field">
+          <label for="adresse">Adresse *</label>
+          <input id="adresse" name="adresse" type="text" required autocomplete="street-address" placeholder="12 rue des Lilas">
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="cp" class="opt-label">Code postal *</label>
+            <input id="cp" name="cp" type="text" inputmode="numeric" pattern="[0-9]{5}" required autocomplete="postal-code" placeholder="75011">
+          </div>
+          <div class="field">
+            <label for="commune">Commune *</label>
+            <input id="commune" name="commune" type="text" required autocomplete="address-level2" placeholder="Paris">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="lots" class="opt">Nombre de lots <span class="opt">· facultatif</span></label>
+            <input id="lots" name="lots" type="number" inputmode="numeric" min="1" placeholder="Ex. : 48">
+          </div>
+          <div class="field">
+            <label for="rnic">Numéro RNIC <span class="opt">· facultatif</span></label>
+            <input id="rnic" name="rnic" type="text" placeholder="Immatriculation RNIC">
+          </div>
+        </div>
+        <div class="link-preview">
+          <code>https://espacecopro.fr/<b id="slug">nom-de-la-copropriete</b></code>
+          <button type="button">Personnaliser</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="legend"><span class="num">02</span><b>👤 Vos coordonnées</b></div>
+        <div class="grid-2">
+          <div class="field"><label for="prenom">Prénom *</label><input id="prenom" name="prenom" type="text" required autocomplete="given-name"></div>
+          <div class="field"><label for="nom2">Nom *</label><input id="nom2" name="nom" type="text" required autocomplete="family-name"></div>
+        </div>
+        <div class="field">
+          <label for="email">Adresse e-mail *</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="prenom.nom@exemple.fr">
+          <span class="hint">Un lien sécurisé vous sera envoyé pour confirmer votre adresse et définir votre mot de passe.</span>
+        </div>
+        <div class="field">
+          <label for="role">Rôle attribué dans le conseil syndical *</label>
+          <select id="role" name="role" required>
+            <option value="">Choisissez le rôle qui vous a été confié</option>
+            <option>Président(e) du conseil syndical</option>
+            <option>Administrateur(trice)</option>
+            <option>Membre du conseil syndical</option>
+          </select>
+        </div>
+        <div class="mandat">
+          <label>
+            <input type="checkbox" id="mandat" required>
+            <span>Je suis le président, ou j’ai reçu son mandat pour créer cet espace, et le rôle sélectionné correspond à ma fonction.</span>
+          </label>
+          <p>En poursuivant, vous demandez la création d’un espace EspaceCopro et l’envoi d’un e-mail d’activation.</p>
+        </div>
+      </fieldset>
+
+      <button class="btn btn-primary" type="submit" id="submit">Demander la création de mon espace →</button>
+    </form>
+
+    <aside class="aside-sticky">
+      <div class="secure">
+        <b>🔒 Espace privé</b>
+        Chaque espace est dédié à une seule copropriété. Les données sont isolées : les utilisateurs n’accèdent qu’à leur copropriété.
+      </div>
+      <div class="info">
+        <h3>Ce qui se passe ensuite</h3>
+        <ul>
+          <li>L’espace est créé avec son lien dédié et son invitation.</li>
+          <li>Le premier responsable reçoit un e-mail d’activation.</li>
+          <li>Il définit son mot de passe et invite les membres du conseil.</li>
+          <li>Les rubriques (réunions, travaux, budget, documents) sont ajoutées ensuite.</li>
+        </ul>
+      </div>
+      <div class="info">
+        <h3>Besoin d’aide ?</h3>
+        <p style="font-size:.88rem;color:var(--muted)">Consultez la <a href="#" style="color:var(--blue)">FAQ</a> ou écrivez-nous à <a href="mailto:contact@espacecopro.fr" style="color:var(--blue)">contact@espacecopro.fr</a>.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script>
+  const nom=document.getElementById('nom'),slug=document.getElementById('slug');
+  nom.addEventListener('input',()=>{
+    slug.textContent=nom.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'nom-de-la-copropriete';
+  });
+</script>
+</body>
+</html>
