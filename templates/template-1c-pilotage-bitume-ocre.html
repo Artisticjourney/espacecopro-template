@@ -23,7 +23,7 @@
   a{color:inherit}
   .container{width:min(1180px,92%);margin-inline:auto}
   /* ---------- Header ---------- */
-  .header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--card) 93%,transparent);backdrop-filter:blur(10px);border-bottom:2px solid var(--primary)}
+  .header{position:sticky;top:0;z-index:50;background:rgba(255,253,249,.93);backdrop-filter:blur(10px);border-bottom:2px solid var(--primary)}
   .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:var(--ink);font-size:1.15rem}
   .brand-mark{width:36px;height:36px;border-radius:11px;background:var(--primary);color:var(--sand);display:grid;place-items:center;font-size:.95rem;font-family:'Mulish',sans-serif}
@@ -127,7 +127,7 @@
   .news-link:hover{background:var(--secondary);border-radius:2px}
   .news-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:24px}
   .news-main{display:flex;flex-direction:column;justify-content:flex-end;background:var(--primary);color:var(--bg);border-radius:24px;padding:34px;min-height:380px;position:relative;overflow:hidden;text-decoration:none;transition:transform .2s}
-  .news-main::after{content:"◆";position:absolute;top:18px;right:26px;font-size:5rem;color:var(--secondary);opacity:.25;transform:rotate(12deg)}
+  .news-main::after{content:"◆";position:absolute;top:18px;right:26px;font-size:5rem;color:var(--secondary);opacity:.38;transform:rotate(12deg)}
   .news-main::before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:repeating-linear-gradient(135deg,var(--secondary) 0 14px,var(--sand) 14px 28px)}
   .news-main:hover{transform:translate(-2px,-4px);box-shadow:8px 8px 0 var(--secondary)}
   .news-main h3{font-size:clamp(1.3rem,2.4vw,1.85rem);line-height:1.18;margin:18px 0 12px}
@@ -211,6 +211,7 @@
     .news-grid{grid-template-columns:1fr}
     .who-grid,.quotes{grid-template-columns:1fr}
     .hero-actions .btn{flex:1;min-width:150px}
+    .news-main{min-height:auto;padding:26px;justify-content:flex-start}
     footer{padding:48px 0 26px}
   }
   @media (max-width:560px){
